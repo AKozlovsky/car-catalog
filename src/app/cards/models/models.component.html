@@ -1,0 +1,24 @@
+<div class="container">
+  <div mdcCard *ngFor="let model of models">
+    <div class="custom-card-group-heading">{{model}}</div>
+    <hr mdcListDivider>
+    <a mdcCardPrimaryAction *ngIf="photos[model]['photos'] != undefined" [routerLink]="['/car', model]">
+      <div mdcCardMedia>
+        <div mdcCardMediaContent>
+          <img src="{{ photos[model]['photos'][0] }}" width="auto" height="100%">
+        </div>
+      </div>
+    </a>
+    <a mdcCardPrimaryAction *ngIf="photos[model]['sub-models'] != undefined" [routerLink]="['/sub-models', model]">
+      <div mdcCardMedia>
+        <div mdcCardMediaContent>
+          <img src="{{ photos[model]['sub-models']['photo'] }}" width="auto" height="100%">
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div [ngStyle]="{ 'padding-bottom': '50px' }">
+  <button (click)="goToBack()" mdcButton [outlined]="true"><i mdcButtonIcon class="material-icons">arrow_back_ios</i>&nbsp;Back</button>
+</div>

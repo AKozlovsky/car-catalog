@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+// customize some theme variables, e.g.:
+$mdc-theme-primary: #212121;
+$mdc-theme-secondary: #018786;
+$mdc-theme-background: #fff;
+
+// import theming for all mdc components:
+@import "material-components-web/material-components-web";
+@import "@material/theme/mixins";
+@import "@material/typography/mixins";
+@import "@material/card/mixins";
+
+.blox-snippet-page {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+}
+
+.mdc-drawer--temporary {
+  // the default position is fixed, but in this demo we want to position the drawer
+  // inside its parent, not fixed to the viewport:
+  position: absolute;
+}
+
+[mdcDrawerHeader], [mdcDrawerToolbarSpacer] {
+  // color the header variants the same way as the toolbar:
+  @include mdc-theme-prop(background-color, primary);
+  @include mdc-theme-prop(color, on-primary);
+}
+
+// Stack toolbar and main on top of each other:
+.blox-demo-content {
+  display: inline-flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.blox-demo-main {
+  padding-left: 16px;
+}
+
+.custom-card-container {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  padding-top: 64px;
+}
+
+.brands-card-container {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  padding-top: 25px;
+}
+
+[mdcCard] {
+  min-width: 150px;
+  margin: 24px;
+
+  .custom-card__primary {
+    padding: 1rem;
+    h2 {
+        @include mdc-typography('headline6');
+        margin: 0;
+    }
+    h3 {
+        @include mdc-typography('subtitle2');
+        @include mdc-theme-prop(color, text-secondary-on-background);
+        margin: 0;
+    }
+  }
+
+  .custom-card__secondary {
+    @include mdc-typography('body2');
+    @include mdc-theme-prop(color, text-secondary-on-background);
+    padding: 0 1rem 8px;
+  }
+
+  .custom-card-group-heading {
+      @include mdc-typography('subtitle2');
+      @include mdc-theme-prop(color, text-secondary-on-light);
+      padding: 8px 16px;
+  }
+
+  .custom-card-article {
+      padding: 16px;
+      text-decoration: none;
+      color: inherit;
+
+      h2 {
+          @include mdc-typography('headline5');
+          margin: 0 0 4px 0;                
+      }
+      p {
+          @include mdc-typography('body2');
+          @include mdc-theme-prop(color, text-secondary-on-light);
+          margin: 0;
+      }
+  }
+
+  [mdcCardMedia] {
+    height: 150px;
+    width: 250px;
+  }
+
+  .mdc-card__media--16-9 {
+    background-size: contain;
+  }
+}

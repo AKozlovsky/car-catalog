@@ -1,0 +1,38 @@
+<div class="container" [ngStyle]="{'padding': '25px 0 10px 0'}">
+  <div mdcCard>
+    <div class="custom-card-group-heading">Information</div>
+    <hr mdcListDivider>
+    <a class="custom-card-article" mdcRipple surface href="javascript:void(0)">
+      <h2>Name</h2>
+      <p>{{ name }}</p>
+    </a>
+    <hr mdcListDivider>
+    <a class="custom-card-article" mdcRipple surface href="javascript:void(0)">
+      <h2>Production year</h2>
+      <p>{{ year }}</p>
+    </a>
+  </div>
+</div>
+
+<div class="container" [ngStyle]="{'padding': '0 0 50px 0'}">
+  <div mdcCard *ngFor="let car of cars">
+    <a mdcCardPrimaryAction *ngIf="isSubModel == null" [routerLink]="['/car-preview/photo/', car]">
+      <div mdcCardMedia>
+        <div mdcCardMediaContent>
+          <img src="{{ car }}" width="auto" height="100%">
+        </div>
+      </div>
+    </a>
+    <a mdcCardPrimaryAction *ngIf="isSubModel" [routerLink]="['/car-preview/photo/', car, {submodel: true}]">
+      <div mdcCardMedia>
+        <div mdcCardMediaContent>
+          <img src="{{ car }}" width="auto" height="100%">
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div [ngStyle]="{ 'padding-bottom': '50px' }">
+  <button (click)="goToBack()" mdcButton [outlined]="true"><i mdcButtonIcon class="material-icons">arrow_back_ios</i>&nbsp;Back</button>
+</div>

@@ -1,0 +1,22 @@
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row wrap;
+}
+
+.custom-card-group-heading {
+    text-align: center; 
+    font-weight: bold;
+    font-family: Calibri;
+}
+  
+[mdcCardMediaContent] {
+    text-align: center;
+    padding: 5px;
+}
+
+button {
+    margin-left: 24px;
+}

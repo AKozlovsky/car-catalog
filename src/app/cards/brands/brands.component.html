@@ -1,8 +1,17 @@
 <div class="brands-card-container" *ngIf="brandLetter">
   <div *ngFor="let logo of logos" mdcCard>
-    <a mdcCardPrimaryAction [routerLink]="['/brand-preview/', logo.split('-')[0]]" [ngStyle]="{ 'padding': '5px 0 5px 0' }">
-      <section [ngStyle]="{ 'background-image': 'url(assets/images/logos/' + logo + ')'}" mdcCardMedia size="16:9">
-      </section>
+    <a
+      mdcCardPrimaryAction
+      [routerLink]="['/brand-preview/', logo.split('-')[0]]"
+      [ngStyle]="{ padding: '5px 0 5px 0' }"
+    >
+      <section
+        [ngStyle]="{
+          'background-image': 'url(assets/images/logos/' + logo + ')'
+        }"
+        mdcCardMedia
+        size="16:9"
+      ></section>
     </a>
   </div>
 </div>

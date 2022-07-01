@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, retry } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { catchError, retry } from "rxjs/operators";
+import { throwError } from "rxjs";
 
 export interface Brand {
   id: string;
@@ -10,43 +10,38 @@ export interface Brand {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AppService {
+  logos = "../../assets/logos.json";
+  letters = "../../assets/letters.json";
+  brands = "../../assets/brands.json";
+  photos = "../../assets/photos.json";
 
-  logos = '../../assets/logos.json';
-  letters = '../../assets/letters.json';
-  brands = '../../assets/brands.json';
-  photos = '../../assets/photos.json';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getLogos() {
-    return this.http.get<Brand>(this.logos).pipe(
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<Brand>(this.logos)
+      .pipe(retry(3), catchError(this.handleError));
   }
 
   getLetters() {
-    return this.http.get(this.letters).pipe(
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get(this.letters)
+      .pipe(retry(3), catchError(this.handleError));
   }
 
   getBrandInfo(brand: string) {
-    return this.http.get("../../assets/cars/" + brand.toLowerCase() + ".json").pipe(
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get("../../assets/cars/" + brand.toLowerCase() + ".json")
+      .pipe(retry(3), catchError(this.handleError));
   }
 
   getPhotos(brand: string) {
-    return this.http.get("../../assets/cars/" + brand.toLowerCase() + ".json").pipe(
-      retry(3),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get("../../assets/cars/" + brand.toLowerCase() + ".json")
+      .pipe(retry(3), catchError(this.handleError));
   }
 
   saveValue(val: string): any {
@@ -84,16 +79,15 @@ export class AppService {
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
+      console.error("An error occurred:", error.error.message);
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
       console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
+      );
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
-  };
+    return throwError("Something bad happened; please try again later.");
+  }
 }

@@ -4,9 +4,18 @@
       <div mdcDrawerToolbarSpacer></div>
       <div mdcDrawerContent mdcListGroup>
         <nav mdcList>
-          <a (click)="toggleDrawer(); getBrand(letter)" *ngFor="let letter of letters" mdcListItem
-            style="font-size: xx-large; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid black;">
-            {{letter}}
+          <a
+            (click)="toggleDrawer(); getBrand(letter)"
+            *ngFor="let letter of letters"
+            mdcListItem
+            style="
+              font-size: xx-large;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              border-bottom: 1px solid black;
+            "
+          >
+            {{ letter }}
           </a>
         </nav>
       </div>
@@ -16,13 +25,18 @@
     <header mdcTopAppBar>
       <div mdcTopAppBarRow>
         <section mdcTopAppBarSection alignStart>
-          <button mdcTopAppBarNavIcon class="material-icons" (click)="toggleDrawer()"><i
-              class="material-icons">&#xE5C4;</i></button>
+          <button
+            mdcTopAppBarNavIcon
+            class="material-icons"
+            (click)="toggleDrawer()"
+          >
+            <i class="material-icons">&#xE5C4;</i>
+          </button>
           <span mdcToolbarTitle>Catalog of cars</span>
         </section>
       </div>
     </header>
-    <main class="blox-demo-main" *ngIf="!showPreview && brand != ''">
+    <main class="blox-demo-main" *ngIf="show">
       <section class="custom-card-container">
         <app-main [(brand)]="brand"></app-main>
       </section>

@@ -1,8 +1,55 @@
-<div [ngStyle]="{ 'padding': '25px 0 50px 0' }">
-  <img id="photo" src="{{ photo }}" width="100%" height="auto">
-
-  <br><br>
-  <button (click)="goToBack()" mdcButton [outlined]="true"><i mdcButtonIcon class="material-icons">arrow_back_ios</i>&nbsp;Back</button>
-  <button (click)="selectPhoto('bef')" mdcButton [outlined]="true" style="margin-left: 150px" [disabled]="index == 0"><i mdcButtonIcon class="material-icons">keyboard_arrow_left</i></button>
-  <button (click)="selectPhoto('nex')" mdcButton [outlined]="true" style="margin-left: 15px" [disabled]="index == numberPhotos - 1"><i mdcButtonIcon class="material-icons">keyboard_arrow_right</i></button>
+<div [ngStyle]="{ padding: '25px 0 50px 0' }">
+  <img
+    id="photo"
+    src="{{ photo }}"
+    width="100%"
+    height="auto"
+    style="display: block; max-width: 100%"
+  />
+  <br /><br />
+  <button (click)="goToBack()" mdcButton [outlined]="true">
+    <i mdcButtonIcon class="material-icons">arrow_back_ios</i>&nbsp;Back
+  </button>
+  <button
+    (click)="selectPhoto('bef')"
+    mdcButton
+    [outlined]="true"
+    style="margin-left: 150px"
+    [disabled]="index == 0"
+  >
+    <i mdcButtonIcon class="material-icons">keyboard_arrow_left</i>
+  </button>
+  <button
+    (click)="selectPhoto('nex')"
+    mdcButton
+    [outlined]="true"
+    style="margin-left: 15px"
+    [disabled]="index == numberPhotos - 1"
+  >
+    <i mdcButtonIcon class="material-icons">keyboard_arrow_right</i>
+  </button>
+  <button
+    mdcButton
+    outlined
+    (click)="dialog1.open()"
+    style="margin-left: 150px"
+  >
+    Show image
+  </button>
 </div>
+
+<aside #dialog1="mdcDialog" mdcDialog>
+  <div mdcDialogContainer>
+    <div mdcDialogSurface>
+      <h2 mdcDialogTitle>Modal Dialog</h2>
+      <section mdcDialogContent>Test</section>
+      <footer mdcDialogActions>
+        <button mdcButton mdcDialogTrigger="close">Decline</button>
+        <button mdcButton mdcDialogTrigger="accept" mdcDialogDefault>
+          Accept
+        </button>
+      </footer>
+    </div>
+  </div>
+  <div mdcDialogScrim></div>
+</aside>

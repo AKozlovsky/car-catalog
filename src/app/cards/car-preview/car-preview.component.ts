@@ -66,7 +66,7 @@ export class CarPreviewComponent implements OnInit {
   goToBack() {
     if (this.isSubModel) {
       const submodel = this.service.getSubModel();
-      this.router.navigate(['/car/' + submodel, {submodel: true}]);
+      this.router.navigate(['/car/' + submodel, { submodel: true }]);
     } else {
       const model = this.service.getModel();
       this.router.navigate(['/car/' + model]);

@@ -34,7 +34,8 @@
           <a mdcCardPrimaryAction [ngStyle]="{ 'width': '500px', 'height': '350px' }">
             <div mdcCardMedia size="square">
               <div mdcCardMediaContent>
-                <img src="{{ selectedPhoto }}" width="auto" height="350px">
+                <img id="img01" src="{{ selectedPhoto }}" width="auto" height="350px" onclick="onClick(this)"
+                  class="w3-hover-opacity">
               </div>
             </div>
           </a>
@@ -70,7 +71,8 @@
           <a mdcCardPrimaryAction [ngStyle]="{ 'width': 'auto', 'height': '250px' }">
             <div mdcCardMedia size="square">
               <div mdcCardMediaContent>
-                <img src="{{ founderPhoto }}" width="auto" height="250px">
+                <img src="{{ founderPhoto }}" width="auto" height="250px" onclick="onClick(this)"
+                  class="w3-hover-opacity">
               </div>
             </div>
           </a>
@@ -82,4 +84,10 @@
   <br><br>
   <button (click)="goToBack()" mdcButton [outlined]="true"><i mdcButtonIcon
       class="material-icons">arrow_back_ios</i>&nbsp;Back</button>
+</div>
+
+<div id="modal" class="w3-modal" onclick="this.style.display='none'" style="text-align: center">
+  <div class="w3-modal-content w3-animate-zoom" style="width: 100%; background: transparent;">
+    <img id="image">
+  </div>
 </div>

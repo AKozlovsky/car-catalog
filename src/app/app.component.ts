@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     private service: AppService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.router.navigate([""]);

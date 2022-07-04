@@ -1,23 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Catalog of cars</title>
-    <base href="/" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Catalog of cars</title>
+  <base href="/" />
 
-  <body>
-    <app-root></app-root>
-  </body>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    .mySlides {
+      display: none
+    }
+  </style>
+  <script>
+    var slideIndex = 1;
+    function onClick(element) {
+      document.getElementById('image').src = element.src;
+      document.getElementById('modal').style.display = "block";
+    }
+    function showSlide(slideIndex) {
+      var i = parseInt(slideIndex.split('img_')[1]);
+      currentDiv(i);
+      document.getElementById('modal').style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = "none";
+    }
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    function currentDiv(n) {
+      n = parseInt(n);
+      showDivs(slideIndex = n);
+    }
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = x.length }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+      }
+      x[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " w3-opacity-off";
+    }
+  </script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
 </html>
